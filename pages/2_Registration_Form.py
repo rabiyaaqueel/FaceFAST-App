@@ -36,11 +36,12 @@ def video_callback_func(frame):
     
     return av.VideoFrame.from_ndarray(rec_img, format="bgr24") 
 
-webrtc_streamer(key="registration", video_frame_callback=video_callback_func,
-    rtc_configuration={
-        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-    }
-)
+
+# ✅ Add RTC Configuration properly here
+rtc_config = RTCConfiguration({
+    "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+})
+webrtc_streamer(key="registration", video_frame_callback=video_frame_callback,rtc_configuration=rtc_config)
 
 
 #step 3 store facial embeddings data in Redis db

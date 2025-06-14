@@ -52,8 +52,8 @@ def video_frame_callback(frame):
     
     return av.VideoFrame.from_ndarray(pred_img, format="bgr24") 
 
-webrtc_streamer(key="real_time_prediction", video_frame_callback=video_frame_callback,
-    rtc_configuration={
-        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-    }
-)
+# ✅ Add RTC Configuration properly here
+rtc_config = RTCConfiguration({
+    "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+})
+webrtc_streamer(key="real_time_prediction", video_frame_callback=video_frame_callback,rtc_configuration=rtc_config)
