@@ -6,6 +6,8 @@ from Home import face_rec
 from streamlit_webrtc import webrtc_streamer
 import av
 import time 
+from aiortc import RTCConfiguration, RTCIceServer
+
 
 #st.set_page_config(page_title="Real-time prediction",layout="wide")
 #create header

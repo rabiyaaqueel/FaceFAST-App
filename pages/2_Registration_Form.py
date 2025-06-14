@@ -2,6 +2,7 @@ import streamlit as st
 from Home import face_rec
 import cv2
 import numpy as np
+from aiortc import RTCConfiguration, RTCIceServer
 
 #to connect our app to webcam we use streamlit webrtc
 #the av library is used handle video frames inside your Streamlit WebRTC application.
@@ -41,7 +42,7 @@ def video_callback_func(frame):
 rtc_config = RTCConfiguration({
     "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
 })
-webrtc_streamer(key="registration", video_frame_callback=video_frame_callback,rtc_configuration=rtc_config)
+webrtc_streamer(key="registration", video_frame_callback=video_callback_func,rtc_configuration=rtc_config)
 
 
 #step 3 store facial embeddings data in Redis db
