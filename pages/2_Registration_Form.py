@@ -39,9 +39,10 @@ def video_callback_func(frame):
 
 
 # ✅ Add RTC Configuration properly here
-rtc_config = RTCConfiguration({
+rtc_config = {
     "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-})
+}
+
 webrtc_streamer(key="registration", video_frame_callback=video_callback_func,rtc_configuration=rtc_config)
 
 
