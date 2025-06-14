@@ -6,8 +6,6 @@ from Home import face_rec
 from streamlit_webrtc import webrtc_streamer
 import av
 import time 
-from aiortc import RTCConfiguration, RTCIceServer
-
 
 #st.set_page_config(page_title="Real-time prediction",layout="wide")
 #create header
@@ -54,11 +52,12 @@ def video_frame_callback(frame):
     
     return av.VideoFrame.from_ndarray(pred_img, format="bgr24") 
 
-# ✅ Add RTC Configuration properly here
 rtc_config = {
-    "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+    "iceServers": [
+        {"urls": ["stun:stun.l.google.com:19302"]},
+        {"urls": ["stun:global.stun.twilio.com:3478"]}
+    ]
 }
-
 webrtc_streamer(
     key="real_time_prediction",
     video_frame_callback=video_frame_callback,
