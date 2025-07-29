@@ -16,7 +16,7 @@ from datetime import datetime #datetime is a class inside the module that gives 
 
 #connect to redis client i.e database
 #connecting python to redis database
-r=redis.StrictRedis(host="redis-11498.c90.us-east-1-3.ec2.redns.redis-cloud.com",port=11498,password="YUMGPm17tELn3590Gf5K53CAYmKn6tpC")
+r=redis.StrictRedis(host="redis-17797.c16.us-east-1-3.ec2.redns.redis-cloud.com",port=17797,password="fIQnh45JlIaWnTZO20ae07r6pfOsBecp")
 
 
 
